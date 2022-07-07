@@ -23,7 +23,7 @@ let typewriter = new Typewriter(typeWriter, {
   loop: true
 });
 
-typewriter.typeString('Je suis développeur Freelance')
+typewriter.typeString('Freelance')
   .pauseFor(1500)
   .deleteChars(9)
   .typeString('<span style="color: #FF5722;">HTML 5</span>')

@@ -44,17 +44,86 @@ typewriter.typeString('Freelance')
 
 /* VALIDATION FORMULAIRE */
 
-let formContact = document.getElementById("contact-form");
+const form = document.getElementById("contact-form");
 
-console.log(formContact)
+function validateRequired(id, nomDuChamps)
+{
+  let value = document.getElementById(id).value;
+  let errorMessageSpan = document.getElementById(id + "ErrorMessage");
 
-formContact.addEventListener('submit', function(e) {
-  let lastname = document.getElementById('form-contact-lastname');
-console.log(lastname.value)
-  if(lastname.value == "") {
-    let error = getElementById("error");
-    error.innerHtml = "Veuillez taper votre nom!";
-    error.style.color = 'red';
-    e.preventDefault();
+  if(value == "")
+  {
+    let errorText =  "Veuillez entrer votre " + nomDuChamps + " !";
+    errorMessageSpan.innerHTML = errorText;
+    return errorText;
   }
-})
+  else
+  {
+    errorMessageSpan.innerHTML = '';
+    return '';
+  }
+}
+
+function validateMinimumLength(id, minimumLength, nomDuChamps)
+{
+  let value = document.getElementById(id).value;
+  let errorMessageSpan = document.getElementById(id + "ErrorMessage");
+
+  if(value.length < minimumLength)
+  {
+    let errorText =  "Votre " + nomDuChamps + " doit contenir plus de " + minimumLength + " caractères!";
+    errorMessageSpan.innerHTML = errorText;
+    return errorText;
+  }
+  else
+  {
+    errorMessageSpan.innerHTML = '';
+    return '';
+  }
+}
+
+function validateCheckbox()
+{
+  let checkbox = document.getElementById('agree');
+  let errorMessageSpan = document.getElementById('agreeErrorMessage');
+
+  if(!checkbox.checked)
+  {
+    let errorText =  "Vous devez acceptez la politique de confidentialité!";
+    errorMessageSpan.innerHTML = errorText;
+    return errorText;
+  }
+  else
+  {
+    errorMessageSpan.innerHTML = '';
+    return '';
+  }
+}
+
+function validateMail()
+{
+  let expressionReguliere = /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
+  let errorMessageSpan = document.getElementById('mailErrorMessage');
+
+  if(!expressionReguliere.test(document.getElementById('mail').value))
+  {
+    let errorText =  "Vous devez entrer une adresse mail valide!";
+    errorMessageSpan.innerHTML = errorText;
+    return errorText;
+  }
+}
+
+form.addEventListener("submit", (event => {
+
+  let errorMessage = validateRequired('name', "nom");
+  errorMessage += validateRequired("firstname", "prénom");
+  errorMessage += validateRequired("mail", "e-mail");
+  errorMessage += validateRequired("message", "message");
+  errorMessage += validateCheckbox();
+  errorMessage += validateMail();
+
+  if(errorMessage != '')
+  {
+    event.preventDefault();
+  }
+}));

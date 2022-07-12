@@ -7,7 +7,6 @@
   <meta name="description" content="Bienvenue sur mon portfolio. Vous découvrirez ici, les services que je propose et mes différents projets réalisés">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://i.icomoon.io/public/temp/505d95fb5a/UntitledProject/style.css">
   <link rel="stylesheet" href="site.css">
 
   <title>WebDev72 - Accueil</title>
@@ -323,37 +322,49 @@
   <!-- Start Contact -->
   <section class="py-5" id="contact">
     <div class="container">
-      <h2 class="pb-3 text-center text-custom">Contactez-moi</h2>
+      <h2 class="pb-3 text-custom text-center">Contactez-moi</h2>
       <div class="row row-cols-1 px-3">
-        <form action="" method="post" id="contact-form">
+        <form id="contact-form" method="post" action="validForm.php">
           <div class="row my-3">
+
               <div class="col-md-6 my-3">
-                <label for="form-contact-lastname" class="form-label">Nom :</label>
-                <input type="text" class="form-control" id="form-contact-lastname" placeholder="Votre nom">
-                <span id="error"></span>
+                <label for="name" class="form-label">Nom :<span class="text-custom"> *</span></label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom">
+                <span class="text-custom" id="nameErrorMessage"></span>
               </div>
+
               <div class="col-md-6 my-3">
-                <label for="form-contact-firstname" class="form-label">Prénom :</label>
-                <input type="text" class="form-control" id="form-contact-firstname" placeholder="Votre prénom">
+                <label for="firstname" class="form-label">Prénom :<span class="text-custom"> *</span></label>
+                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Votre prénom">
+                <span class="text-custom" id="firstnameErrorMessage"></span>
               </div>
+
               <div class="col-md-6 my-3">
-                <label for="form-contact-company" class="form-label">Entreprise / association :</label>
-                <input type="text" class="form-control" id="form-contact-company" placeholder="votre entreprise ou association">
+                <label for="company" class="form-label">Entreprise / association :</label>
+                <input type="text" class="form-control" id="company" name="company" placeholder="Votre entreprise ou association">
               </div>
+
               <div class="col-md-6 my-3">
-                <label for="form-contact-mail" class="form-label">Adresse mail :</label>
-                <input type="email" class="form-control" id="form-contact-mail" placeholder="votre adresse email">
+                <label for="mail" class="form-label">Adresse mail :<span class="text-custom"> *</span></label>
+                <input type="mail" class="form-control" id="mail" name="mail" placeholder="Votre adresse email">
+                <span class="text-custom" id="mailErrorMessage"></span>
               </div>
             </div>
-            <div class="row my-3">
-              <label for="form-contact-message" class="form-label">Votre message :</label>
-              <textarea class="form-control" id="form-contact-message" rows="3" placeholder="votre message"></textarea>
+            <div class="cols md-6 my-3">
+              <label for="message" class="form-label">Votre message :<span class="text-custom"> *</span></label>
+              <textarea class="form-control" id="message" name="message" rows="3" placeholder="Votre message"></textarea>
+              <span class="text-custom" id="messageErrorMessage"></span>
             </div>
+
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <input class="form-check-input" type="checkbox" id="agree">
               <label class="form-check-label" for="gridCheck">
-                J'accèpte la politique de confidentialité.
+                J'accèpte la politique de confidentialité.<span class="text-custom"> *</span>
+                <span class="text-custom" id="agreeErrorMessage"></span>
               </label>
+            </div>
+            <div>
+              <p class="small-text">Les champs<span class="text-custom"> * </span> sont obligatoires</p>
             </div>
             <div class="col-12 text-center">
               <button type="submit" class="btn btn-danger">Valider</button>
@@ -364,12 +375,17 @@
   </section>
   <!-- End Contact -->
 
+  <!-- Start back to home button -->
   <a id="scroll-top-button" class="btn-scroll" href="#home">
     <i class="bi bi-chevron-double-up"></i>
   </a>
+  <!-- Start back to home button -->
 </main>
   
+  <!-- Import Typewriter -->
   <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+  <!-- Import Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="script.js"></script>
 

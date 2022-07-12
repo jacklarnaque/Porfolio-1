@@ -317,14 +317,14 @@
       </div>
     </div>
   </section>
-  <!-- Start Mes réalisations -->
+  <!-- End Mes réalisations -->
 
   <!-- Start Contact -->
   <section class="py-5" id="contact">
     <div class="container">
       <h2 class="pb-3 text-custom text-center">Contactez-moi</h2>
       <div class="row row-cols-1 px-3">
-        <form id="contact-form" method="post" action="validForm.php">
+        <form id="contact-form" action="post_contact.php" method="post" onsubmit="functSubmit()">
           <div class="row my-3">
 
               <div class="col-md-6 my-3">

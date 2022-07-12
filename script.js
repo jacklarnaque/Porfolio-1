@@ -113,9 +113,10 @@ function validateMail()
   }
 }
 
-form.addEventListener("submit", (event => {
+function functSubmit(event) {
 
   let errorMessage = validateRequired('name', "nom");
+  console.log('ça marche');
   errorMessage += validateRequired("firstname", "prénom");
   errorMessage += validateRequired("mail", "e-mail");
   errorMessage += validateRequired("message", "message");
@@ -124,6 +125,7 @@ form.addEventListener("submit", (event => {
 
   if(errorMessage != '')
   {
+    console.log("ça marche po")
     event.preventDefault();
   }
-}));
+};

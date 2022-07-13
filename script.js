@@ -59,26 +59,9 @@ function validateRequired(id, nomDuChamps)
   }
   else
   {
+    let errorText = '';
     errorMessageSpan.innerHTML = '';
-    return '';
-  }
-}
-
-function validateMinimumLength(id, minimumLength, nomDuChamps)
-{
-  let value = document.getElementById(id).value;
-  let errorMessageSpan = document.getElementById(id + "ErrorMessage");
-
-  if(value.length < minimumLength)
-  {
-    let errorText =  "Votre " + nomDuChamps + " doit contenir plus de " + minimumLength + " caractères!";
-    errorMessageSpan.innerHTML = errorText;
     return errorText;
-  }
-  else
-  {
-    errorMessageSpan.innerHTML = '';
-    return '';
   }
 }
 
@@ -95,28 +78,36 @@ function validateCheckbox()
   }
   else
   {
+    let errorText = '';
     errorMessageSpan.innerHTML = '';
-    return '';
-  }
-}
-
-function validateMail()
-{
-  let expressionReguliere = /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
-  let errorMessageSpan = document.getElementById('mailErrorMessage');
-
-  if(!expressionReguliere.test(document.getElementById('mail').value))
-  {
-    let errorText =  "Vous devez entrer une adresse mail valide!";
-    errorMessageSpan.innerHTML = errorText;
     return errorText;
   }
 }
 
-function functSubmit(event) {
 
-  let errorMessage = validateRequired('name', "nom");
-  console.log('ça marche');
+function validateMail() 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.mail.value))
+  {
+    let errorText = '';
+    let errorMessageSpan = document.getElementById("mailErrorMessage");
+    errorMessageSpan.innerHTML = '';
+    return errorText
+  }
+  else
+  {
+    let errorText =  "Vous devez entre une adresse email valide!";
+    let errorMessageSpan = document.getElementById("mailErrorMessage");
+    errorMessageSpan.innerHTML = errorText;
+    return errorText;
+  }
+  
+}
+
+form.addEventListener("submit", (event => {
+
+  let errorMessage = '';
+  errorMessage += validateRequired('name', "nom");
   errorMessage += validateRequired("firstname", "prénom");
   errorMessage += validateRequired("mail", "e-mail");
   errorMessage += validateRequired("message", "message");
@@ -125,7 +116,6 @@ function functSubmit(event) {
 
   if(errorMessage != '')
   {
-    console.log("ça marche po")
     event.preventDefault();
   }
-};
+}));

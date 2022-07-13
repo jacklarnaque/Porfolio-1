@@ -324,7 +324,7 @@
     <div class="container">
       <h2 class="pb-3 text-custom text-center">Contactez-moi</h2>
       <div class="row row-cols-1 px-3">
-        <form id="contact-form" action="post_contact.php" method="post" onsubmit="functSubmit()">
+        <form id="contact-form" action="post_contact.php" method="POST">
           <div class="row my-3">
 
               <div class="col-md-6 my-3">
@@ -387,6 +387,8 @@
 
   <!-- Import Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
   <script src="script.js"></script>
 
 </body>

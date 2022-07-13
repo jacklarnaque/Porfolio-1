@@ -11,27 +11,16 @@ function sendMail()
     
     if (!empty($data))
     {
-      echo '<pre>';
-      var_dump($data);
-      echo '</pre>';
       return $data;
     }
 
-    $msg = wordwrap($msg, 70, "\r\n");
   }
   $mail = validateData($_POST['mail']);
   $nom = validateData($_POST['name']);
   $prenom = validateData($_POST['firstname']);
   $msg = validateData($_POST['message']);
   $company = validateData($_POST['company']);
-
-  echo'<pre>';
-  var_dump($mail);
-  var_dump($nom);
-  var_dump($prenom);
-  var_dump($company);
-  var_dump($msg);
-  echo'</pre>';
+  $msg = wordwrap(($_POST['message']), 70, "\r\n");
 
   // START Message
   
@@ -56,8 +45,6 @@ function sendMail()
   
   // END Message
 
-  var_dump($message);
-
   
   $to = "contact@webdev72.fr";
   $subject = "Un message depuis votre site";
@@ -73,9 +60,4 @@ function sendMail()
   
   }
 }
-
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
-
 sendMail();

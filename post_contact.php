@@ -15,6 +15,7 @@ function sendMail()
     }
 
   }
+
   $mail = validateData($_POST['mail']);
   $nom = validateData($_POST['name']);
   $prenom = validateData($_POST['firstname']);
@@ -38,7 +39,7 @@ function sendMail()
   $message .= $msg;
   $message .= '
   <html>
-  <p style = "color: blue"> vous pouvez lui répondre à l\'adresse email suivante :</p>
+  <p style = "color: blue"> Vous pouvez lui répondre à l\'adresse email suivante :</p>
   </html>
   ';
   $message .= $mail;
@@ -46,7 +47,7 @@ function sendMail()
   // END Message
 
   
-  $to = "contact@webdev72.fr";
+  $to = "vesque.cedric@bbox.fr";
   $subject = "Un message depuis votre site";
   $headers = "Content-Type: text/html; charset=utf-_8\r\n";
   $headers .= "From: $mail";
@@ -57,7 +58,6 @@ function sendMail()
   else
   {
     echo 'Erreur envoi!';
-  
   }
 }
 sendMail();

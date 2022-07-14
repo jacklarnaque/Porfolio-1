@@ -47,10 +47,10 @@ function sendMail()
   // END Message
 
   
-  $to = "vesque.cedric@bbox.fr";
+  $to = "contact@webdev72.fr";
   $subject = "Un message depuis votre site";
   $headers = "Content-Type: text/html; charset=utf-_8\r\n";
-  $headers .= "From: $mail";
+  $headers .= "From: contact@webdev72.fr";
   
   if (mail ($to, $subject, $message, $headers)) {
     header ('Location: index.php');
